@@ -1,0 +1,66 @@
+import javax.swing.; import java.awt.; import java.awt.event.; / */ public class Big extends JApplet {
+
+JTextField jt,jt1,jt2;
+JLabel jl,j;
+JButton jb;
+
+public void init()
+{
+try
+{
+	SwingUtilities.invokeLater(new Runnable()
+	{
+		public void run()
+		{
+			makeGUI();
+		}
+	});
+}
+catch(Exception e)
+{
+	System.out.println(e);
+}
+}
+public void makeGUI()
+{
+	setLayout(new FlowLayout());
+	jt=new JTextField(10);
+	jt1=new JTextField(10);
+	jt2=new JTextField(10);
+	j=new JLabel("Enter the three values:");
+	jl=new JLabel("");
+	 jb=new JButton("check");
+	add(j);
+	add(jt);
+	add(jt1);
+	add(jt2);
+	add(jb);
+	add(jl);
+
+
+
+jb.addActionListener(new ActionListener()
+{
+	public void actionPerformed(ActionEvent ae)
+	{
+		int a=Integer.parseInt(jt.getText());
+		int b=Integer.parseInt(jt1.getText());
+		int c=Integer.parseInt(jt2.getText());
+
+		if(a>=b && a>=c)
+		{
+			jl.setText("a is largest number");
+		}
+		else if(b>=a && b>=c)
+		{
+			jl.setText("b is largest number");
+		}
+		else
+		{	
+		jl.setText("c is largest number");
+		}
+	}
+	
+	
+	});
+} }
